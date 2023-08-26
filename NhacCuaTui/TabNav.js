@@ -4,8 +4,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Home from './compoments/Home';
-import Discovery from './compoments/Discovery';
-import Profile from './compoments/Profile';
+import Search from './compoments/Search';
+import Library from './compoments/Library';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,31 +13,32 @@ const TabNav = () => {
 
     return (
         <Tab.Navigator
-            initialRouteName={"Dành cho bạn"}
+            initialRouteName={"Trang chủ"}
             screenOptions={() => ({
                 headerShown: false,
                 keyboardHidesTabBar: false,
-                tabBarActiveTintColor: '#000000',
-                tabBarInactiveTintColor: '#A9A9A9',
+                tabBarActiveTintColor: '#ffffff',
+                tabBarInactiveTintColor: '#666666',
                 tabBarLabelStyle: { fontSize: 12 },
-
+                tabBarInactiveBackgroundColor: '#000000',
+                tabBarActiveBackgroundColor: '#000000',
             })}>
 
-            <Tab.Screen name={"Dành cho bạn"} component={Home}
+            <Tab.Screen name={"Trang chủ"} component={Home}
                 options={{
-                    tabBarIcon: ({ color, size }) => <Ionicons name='play-circle' color={color} size={size} />
+                    tabBarIcon: ({ color, size }) => <Ionicons name='home' color={color} size={size} />
                 }}
             />
 
-            <Tab.Screen name={"Khám Phá"} component={Discovery}
+            <Tab.Screen name={"Tìm kiếm"} component={Search}
                 options={{
-                    tabBarIcon: ({ color, size }) => <Ionicons name='headset' color={color} size={size} />
+                    tabBarIcon: ({ color, size }) => <Ionicons name='search' color={color} size={size} />
                 }}
             />
 
-            <Tab.Screen name={"Của Tui"} component={Profile}
+            <Tab.Screen name={"Thư viện"} component={Library}
                 options={{
-                    tabBarIcon: ({ color, size }) => <Ionicons name='person' color={color} size={size} />
+                    tabBarIcon: ({ color, size }) => <Ionicons name='library' color={color} size={size} />
                 }}
             />
         </Tab.Navigator>
