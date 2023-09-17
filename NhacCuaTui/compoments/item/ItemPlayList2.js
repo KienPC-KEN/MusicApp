@@ -1,15 +1,17 @@
 import React from 'react';
-import { View, StyleSheet, Image, Text } from 'react-native';
+import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 
-const ItemPlayList2 = ({ item }) => {
+const ItemPlayList2 = ({ item, navigation }) => {
     if (!item) {
         return null;
     }
     return (
-        <View style={styles.container}>
-            <Image source={{ uri: item.img }} style={styles.img} />
-            <Text style={styles.text}>{item.name}</Text>
-        </View>
+        <TouchableOpacity onPress={() => { navigation.navigate('Playlist', { item: item }) }}>
+            <View style={styles.container}>
+                <Image source={{ uri: item.img }} style={styles.img} />
+                <Text style={styles.text}>{item.name}</Text>
+            </View>
+        </TouchableOpacity>
     );
 }
 
